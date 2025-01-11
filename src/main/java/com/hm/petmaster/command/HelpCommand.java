@@ -1,10 +1,7 @@
 package com.hm.petmaster.command;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
-import com.hm.mcshared.particle.FancyMessageSender;
 import com.hm.petmaster.PetMaster;
 
 /**

@@ -1,9 +1,6 @@
 package com.hm.petmaster.listener;
 
-import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.Tameable;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
 
 import com.hm.petmaster.PetMaster;
 

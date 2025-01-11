@@ -1,7 +1,5 @@
 package com.hm.petmaster.command;
 
-import java.util.HashSet;
-
 import org.bukkit.entity.Player;
 
 import com.hm.petmaster.PetMaster;

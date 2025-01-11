@@ -354,7 +354,6 @@ public class PetMaster extends JavaPlugin {
 		return serverVersion;
 	}
 
-	@Deprecated
 	public String getChatHeader() {
 		return chatHeader;
 	}
