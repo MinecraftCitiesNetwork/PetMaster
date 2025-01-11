@@ -99,7 +99,8 @@ public class PetMaster extends JavaPlugin {
 		getLogger().info("Registering listeners...");
 		
 		serverVersion = Integer.parseInt(
-				Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3].split("_")[1]);
+				Bukkit.getServer().getBukkitVersion().split("-")[0].split("\\.")[1]);
+		getLogger().warning("Server version: " + serverVersion);
 
 		playerInteractListener = new PlayerInteractListener(this);
 		playerLeashListener = new PlayerLeashListener(this);
