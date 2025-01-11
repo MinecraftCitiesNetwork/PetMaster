@@ -1,16 +1,22 @@
 package com.hm.petmaster.listener;
 
-import com.gmail.filoghost.holographicdisplays.api.Hologram;
-import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
-import com.hm.mcshared.event.PlayerChangeAnimalOwnershipEvent;
-import com.hm.petmaster.PetMaster;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
-import net.milkbowl.vault.economy.Economy;
+import java.lang.reflect.Method;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.*;
+import org.bukkit.entity.AnimalTamer;
+import org.bukkit.entity.Animals;
+import org.bukkit.entity.Cat;
+import org.bukkit.entity.Llama;
+import org.bukkit.entity.Ocelot;
+import org.bukkit.entity.Parrot;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Sittable;
+import org.bukkit.entity.Tameable;
+import org.bukkit.entity.Vehicle;
+import org.bukkit.entity.Wolf;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -19,9 +25,14 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
+import com.hm.mcshared.event.PlayerChangeAnimalOwnershipEvent;
+import com.hm.petmaster.PetMaster;
+
+import eu.decentsoftware.holograms.api.DHAPI;
+import eu.decentsoftware.holograms.api.holograms.Hologram;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.milkbowl.vault.economy.Economy;
 
 /**
  * Class used to display holograms, change the owner of a pet or free a pet.
@@ -85,13 +96,13 @@ public class PlayerInteractListener implements Listener {
 		showHealth = plugin.getPluginConfig().getBoolean("showHealth", true);
 		disableRiding = plugin.getPluginConfig().getBoolean("disableRiding", false);
 
-		boolean holographicDisplaysAvailable = Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays");
+		boolean decentHolograms = Bukkit.getPluginManager().isPluginEnabled("DecentHolograms");
 		// Checking whether user configured plugin to display hologram but HolographicsDisplays not available.
-		if (hologramMessage && !holographicDisplaysAvailable) {
+		if (hologramMessage && !decentHolograms) {
 			hologramMessage = false;
 			actionBarMessage = true;
 			plugin.getLogger().warning(
-					"HolographicDisplays was not found; disabling usage of holograms and enabling action bar messages.");
+					"DecentHolograms was not found; disabling usage of holograms and enabling action bar messages.");
 		}
 	}
 
@@ -248,8 +259,8 @@ public class PlayerInteractListener implements Listener {
 			Location hologramLocation = new Location(eventLocation.getWorld(), eventLocation.getX(),
 					eventLocation.getY() + offset, eventLocation.getZ());
 
-			final Hologram hologram = HologramsAPI.createHologram(plugin, hologramLocation);
-			hologram.appendTextLine(plugin.getMessageSender().parseMessageToString(
+			final Hologram hologram = DHAPI.createHologram(tameable.getName() + "_" + UUID.randomUUID(), hologramLocation);
+			DHAPI.addHologramLine(hologram, plugin.getMessageSender().parseMessageToString(
 					"petmaster-hologram",
 					Placeholder.component("owner", Component.text(owner.getName() != null ? owner.getName() : "null"))
 			));
@@ -267,7 +278,6 @@ public class PlayerInteractListener implements Listener {
 
 		Component healthInfo = null;
 		if (showHealth) {
-			@SuppressWarnings("cast") // Tameable did not extend Animals in older versions of Bukkit.
 			Animals animal = (Animals) tameable;
 			healthInfo = plugin.getMessageSender().parseMessage(
 					plugin.getPluginLang().getString("petmaster-health"),
