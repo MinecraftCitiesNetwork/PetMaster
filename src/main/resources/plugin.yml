@@ -1,8 +1,12 @@
 name: ${project.name}
 main: ${project.groupId}.${project.artifactId}.${project.name}
 version: ${project.version}
-authors: [DarkPyves, Nobookie]
-softdepend: [DecentHolograms, Vault]
+authors:
+  - DarkPyves
+  - Nobookie
+softdepend:
+  - DecentHolograms
+  - Vault
 description: ${project.description}
 website: ${project.url}
 api-version: 1.21
