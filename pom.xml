@@ -2,13 +2,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hm</groupId>
 	<artifactId>petmaster</artifactId>
-	<version>1.12.5</version>
+	<version>1.12.6</version>
 	<url>https://github.com/leothawne/PetMaster</url>
 	<name>PetMaster</name>
 	<description>Manage pets and display useful information via holograms, action bar or chat messages!</description>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/PyvesB/PetMaster/issues</url>
+		<url>https://github.com/leothawne/PetMaster/issues</url>
 	</issueManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
