@@ -47,15 +47,13 @@ Your generated `PetMaster-VERSION.jar` can be found in the `target` folder.
 
 #### :earth_americas: Useful links
 
-* [Spigot](https://www.spigotmc.org/resources/pet-master.15904/), homepage of the plugin.
+* [Spigot](https://www.spigotmc.org/resources/pet-master.15904/), homepage of the plugin (from original plugin's owner).
 
-* [Bukkit](http://dev.bukkit.org/bukkit-plugins/pet-master/), another homepage.
+* [Bukkit](http://dev.bukkit.org/bukkit-plugins/pet-master/), another homepage (from original plugin's owner).
 
 * [Documentation, installation and FAQ](https://github.com/leothawne/PetMaster/wiki), a lot of valuable information on how to set the plugin up or use it properly.
 
 * [Plugin translations](https://github.com/leothawne/PetMaster/tree/master/src/main/resources), 10 languages available, feel free to improve the translations!
-
-* [HelloMinecraft](http://hellominecraft.fr/), the plugin's official server, amongst the best French servers out there!
 
 # Contributing
 
