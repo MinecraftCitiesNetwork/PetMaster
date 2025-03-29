@@ -1,11 +1,10 @@
 package com.hm.petmaster.command;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import com.hm.petmaster.PetMaster;
 import com.hm.petmaster.files.PetAbilityFile;
-
-import net.md_5.bungee.api.ChatColor;
 
 public class SetConfigCommand {
 	PetMaster plugin = PetMaster.getPlugin(PetMaster.class);

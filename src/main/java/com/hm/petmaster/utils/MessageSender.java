@@ -1,18 +1,20 @@
 package com.hm.petmaster.utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
 import com.hm.petmaster.PetMaster;
+
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MessageSender {
     private final PetMaster plugin;
@@ -31,7 +33,7 @@ public class MessageSender {
     }
 
     public Component parseMessage(String message, TagResolver... tagResolvers) {
-        List<TagResolver> allTagResolvers = new ArrayList<>(Arrays.stream(tagResolvers).toList());
+        List<TagResolver> allTagResolvers = new ArrayList<>(Arrays.asList(tagResolvers));
         allTagResolvers.add(Placeholder.parsed(
                 "prefix",
                 plugin.getPluginLang().getString("petmaster-prefix", "<gray>[<gold>♞<gray>] ")
