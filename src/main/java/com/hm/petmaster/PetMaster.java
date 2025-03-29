@@ -175,8 +175,8 @@ public class PetMaster extends JavaPlugin {
 
 		if (config.getBoolean("checkForUpdate", true)) {
 			if (updateChecker == null) {
-				updateChecker = new UpdateChecker(this, "https://raw.githubusercontent.com/PyvesB/PetMaster/master/pom.xml",
-					"petmaster.admin", chatHeader, "spigotmc.org/resources/pet-master.15904");
+				updateChecker = new UpdateChecker(this, "https://raw.githubusercontent.com/leothawne/PetMaster/master/pom.xml",
+					"petmaster.admin", chatHeader, "https://jenkins.gmj.net.br/job/PetMaster/lastSuccessfulBuild/");
 				getServer().getPluginManager().registerEvents(updateChecker, this);
 				updateChecker.launchUpdateCheckerTask();
 			}
