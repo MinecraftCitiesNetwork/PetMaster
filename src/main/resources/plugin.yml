@@ -9,7 +9,7 @@ softdepend:
   - Vault
 description: ${project.description}
 website: ${project.url}
-api-version: 1.14
+api-version: 1.21
 commands:
   petm:
     description: Main Pet Master command, use it to list sub-commands.

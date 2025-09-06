@@ -7,27 +7,26 @@
 plugins {
     `java-library`
     `maven-publish`
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
     mavenLocal()
     maven {
+        url = uri("https://repo.papermc.io/repository/maven-public/")
+    }
+    maven {
         url = uri("https://hub.spigotmc.org/nexus/content/groups/public/")
     }
-
     maven {
         url = uri("https://jitpack.io/")
     }
-
     maven {
         url = uri("https://raw.github.com/Sidpatchy/MCShared/mvn-repo/")
     }
-
     maven {
         url = uri("https://repo.codemc.io/repository/maven-public/")
     }
-
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
@@ -38,15 +37,15 @@ dependencies {
     api(libs.net.kyori.adventure.text.minimessage)
     api(libs.net.kyori.adventure.platform.bukkit)
     api(libs.com.hm.mcshared.mcshared)
-    compileOnly(libs.org.spigotmc.spigot.api)
+    compileOnly(libs.io.papermc.paper.api)
     compileOnly(libs.net.milkbowl.vault.vaultapi)
     compileOnly(libs.com.github.decentsoftware.eu.decentholograms)
 }
 
 group = "com.hm"
-version = "1.12.7"
+version = "1.13.0"
 description = "PetMaster"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 // Define project properties for resource processing
 val projectName = "PetMaster"
