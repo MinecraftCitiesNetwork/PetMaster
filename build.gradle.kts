@@ -43,7 +43,7 @@ dependencies {
 }
 
 group = "com.hm"
-version = "1.13.0"
+version = "1.13.1"
 description = "PetMaster"
 java.sourceCompatibility = JavaVersion.VERSION_17
 

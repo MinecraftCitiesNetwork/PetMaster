@@ -69,9 +69,6 @@ public class PetMaster extends JavaPlugin {
 	private EnableDisableCommand enableDisableCommand;
 	private ReloadCommand reloadCommand;
 	private SetColorCommand setColorCommand;
-	private ShareCommand shareCommand;
-	private PetInvincibleCommand petInvincibleCommand;
-	private PetSkillCommand petSkillCommand;
 
 	//Messageing System
 	private BukkitAudiences adventure;
@@ -135,9 +132,6 @@ public class PetMaster extends JavaPlugin {
 		enableDisableCommand = new EnableDisableCommand(this);
 		reloadCommand = new ReloadCommand(this);
 		setColorCommand = new SetColorCommand(this, playerColorConfig);
-		shareCommand = new ShareCommand(this);
-		petInvincibleCommand = new PetInvincibleCommand(this);
-		petSkillCommand = new PetSkillCommand(this);
 
 		// Warn if an outdated entry is contained in the language file
 		if (lang.contains("petmaster-command-info-hover")){
@@ -324,12 +318,6 @@ public class PetMaster extends JavaPlugin {
 			freeCommand.freePet(((Player) sender), args);
 		} else if ("setcolor".equalsIgnoreCase(args[0]) && sender instanceof Player) {
 			setColorCommand.setColor(((Player) sender), args);
-		} else if("sharepet".equalsIgnoreCase(args[0]) && sender instanceof Player) {
-			shareCommand.sharePetCommand((Player) sender);
-		} else if("godpet".equalsIgnoreCase(args[0]) && sender instanceof Player) {
-			petInvincibleCommand.godPetCommand((Player)sender);
-		} else if ("petskill".equalsIgnoreCase(args[0]) && sender instanceof Player) {
-			petSkillCommand.petSkillCommand((Player)sender);
 		} else {
 			getMessageSender().sendMessage(sender, "misused-command");
 		}
