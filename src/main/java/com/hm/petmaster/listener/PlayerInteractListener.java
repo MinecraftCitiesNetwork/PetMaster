@@ -28,10 +28,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.hm.mcshared.event.PlayerChangeAnimalOwnershipEvent;
 import com.hm.petmaster.PetMaster;
 
-import eu.decentsoftware.holograms.api.DHAPI;
-import eu.decentsoftware.holograms.api.holograms.Hologram;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+
+import eu.decentsoftware.holograms.api.DHAPI;
+import eu.decentsoftware.holograms.api.holograms.Hologram;
 import net.milkbowl.vault.economy.Economy;
 
 /**
@@ -168,11 +169,9 @@ public class PlayerInteractListener implements Listener {
 		if (chargePrice(player, changeOwnerPrice)) {
 			// Change owner.
 			tameable.setOwner(newOwner);
-			player.sendMessage(plugin.getChatHeader()
-					+ plugin.getPluginLang().getString("owner-changed", "This pet was given to a new owner!"));
-			newOwner.sendMessage(plugin.getChatHeader()
-					+ plugin.getPluginLang().getString("new-owner", "Player PLAYER gave you ownership of a pet!")
-							.replace("PLAYER", player.getName()));
+			plugin.getMessageSender().sendMessage(player, "owner-changed");
+			plugin.getMessageSender().sendMessage(newOwner, "new-owner", 
+					Placeholder.component("player", Component.text(player.getName())));
 
 			// Create new event to allow other plugins to be aware of the ownership change.
 			PlayerChangeAnimalOwnershipEvent playerChangeAnimalOwnershipEvent = new PlayerChangeAnimalOwnershipEvent(

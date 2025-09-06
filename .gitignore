@@ -1,14 +1,26 @@
 # Compiled source #
 *.class
 
+# Gradle build directory
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Gradle cache
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Gradle daemon
+.gradle/daemon/
+
 # Eclipse files #
 .settings
 .classpath
 .project
 
-# Target jars #
-target
-
+# Maven (legacy - can be removed if not needed)
+target/
 dependency-reduced-pom.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij+all,eclipse
